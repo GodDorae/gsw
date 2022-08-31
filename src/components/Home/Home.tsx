@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Gallery from "./Gallery";
 import TeamStat from "./TeamStat";
 import VideoAndTitle from "./VideoAndTitle";
 
@@ -7,6 +8,7 @@ const HomePageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 5rem;
 `
 
 function Home() {
@@ -14,6 +16,7 @@ function Home() {
     <HomePageContainer>
       <VideoAndTitle />
       <TeamStat />
+      <Gallery />
     </HomePageContainer>
   );
 }

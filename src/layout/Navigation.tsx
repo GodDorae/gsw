@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import LogoImage from "../assets/logo.png";
 
@@ -36,9 +37,9 @@ function Navigation() {
         <img src={LogoImage} />
       </Logo>
       <MenuBar>
-        <div>Home</div>
-        <div>Team</div>
-        <div>News</div>
+        <Link to="/">Home</Link>
+        <Link to="/team">Team</Link>
+        <Link to="/news">News</Link>
       </MenuBar>
     </Header>
   );

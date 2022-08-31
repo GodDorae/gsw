@@ -14,6 +14,10 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Open Sans', sans-serif;
         line-height: 1.5;
     }
-`
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+`;
 
 export default GlobalStyle;

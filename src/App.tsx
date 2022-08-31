@@ -5,6 +5,8 @@ import GlobalStyle from "./GlobalStyle";
 import Footer from "./layout/Footer";
 import Navigation from "./layout/Navigation";
 import HomePage from "./pages/HomePage";
+import NewsPage from "./pages/NewsPage";
+import TeamPage from "./pages/TeamPage";
 
 const Container = styled.div`
   width: 100%;
@@ -20,6 +22,8 @@ function App() {
       <Container>
         <Routes>
           <Route element={<HomePage />} path="/" />
+          <Route element={<TeamPage />} path="/team" />
+          <Route element={<NewsPage />} path="/news" />
         </Routes>
       </Container>
       <Footer />

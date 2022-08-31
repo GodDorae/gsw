@@ -24,6 +24,7 @@ function VideoAndTitle() {
       <video
         autoPlay={true}
         loop={true}
+        muted={true}
         src={VideoContent}
         style={{ width: "100%", height: "100%", opacity: "0.25", zIndex: "-1", objectFit: "cover"}}
       />
