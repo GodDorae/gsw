@@ -1,5 +1,11 @@
+import Team from "../components/Team/Team";
+
 function TeamPage() {
-    return <h1>This is sample team page</h1>
-  }
+  return (
+    <>
+      <Team />
+    </>
+  );
+}
   
   export default TeamPage;
