@@ -22,7 +22,7 @@ function App() {
       <Container>
         <Routes>
           <Route element={<HomePage />} path="/" />
-          <Route element={<TeamPage />} path="/team" />
+          <Route element={<TeamPage />} path="/team/*" />
           <Route element={<NewsPage />} path="/news" />
         </Routes>
       </Container>
