@@ -1,5 +1,11 @@
+import News from "../components/News/News";
+
 function NewsPage() {
-  return <h1>This is sample news page</h1>
+  return (
+    <>
+      <News />
+    </>
+  );
 }
 
 export default NewsPage;

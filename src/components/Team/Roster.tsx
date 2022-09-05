@@ -3,6 +3,14 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import options from "../../API_INFO";
 
+const WholeContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+`;
+
 const RosterContainer = styled.div`
   width: 80%;
   display: grid;
@@ -70,6 +78,7 @@ function Roster() {
   const [allIDs, setAllIDs] = useState<number[]>([]);
   const [mainPlayersIDs, setMainPlayersIDs] = useState<number[]>([]);
   const [mainPlayersData, setMainPlayersData] = useState<IMainPlayerData[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   function mainPlayerChecker(id: number, givenList: IPlayerStat[]) {
     let count = 0;
@@ -85,86 +94,88 @@ function Roster() {
     }
   }
 
-  useEffect(() => {
-    fetch(
-      "https://api-nba-v1.p.rapidapi.com/players?team=11&season=2021",
-      options
-    )
-      .then((response) => response.json())
-      .then((response) => {
-        const data = response.response;
-        console.log(data);
-        const ID: number[] = [];
-        data.forEach((datum: IPlayer) => {
-          ID.push(datum.id);
-        });
-        setAllIDs(ID);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch(
+  //     "https://api-nba-v1.p.rapidapi.com/players?team=11&season=2021",
+  //     options
+  //   )
+  //     .then((response) => response.json())
+  //     .then((response) => {
+  //       const data = response.response;
+  //       console.log(data);
+  //       const ID: number[] = [];
+  //       data.forEach((datum: IPlayer) => {
+  //         ID.push(datum.id);
+  //       });
+  //       setAllIDs(ID);
+  //     });
+  // }, []);
 
-  useEffect(() => {
-    if (allIDs.length !== 0) {
-      fetch(
-        "https://api-nba-v1.p.rapidapi.com/players/statistics?team=11&season=2021",
-        options
-      )
-        .then((response) => response.json())
-        .then((response) => {
-          const data = response.response;
-          const validIDs: number[] = [];
-          for (const id of allIDs) {
-            const result = mainPlayerChecker(id, data);
-            if (result) {
-              validIDs.push(id);
-            }
-          }
-          setMainPlayersIDs(validIDs);
-        });
-    }
-  }, [allIDs]);
+  // useEffect(() => {
+  //   if (allIDs.length !== 0) {
+  //     fetch(
+  //       "https://api-nba-v1.p.rapidapi.com/players/statistics?team=11&season=2021",
+  //       options
+  //     )
+  //       .then((response) => response.json())
+  //       .then((response) => {
+  //         const data = response.response;
+  //         const validIDs: number[] = [];
+  //         for (const id of allIDs) {
+  //           const result = mainPlayerChecker(id, data);
+  //           if (result) {
+  //             validIDs.push(id);
+  //           }
+  //         }
+  //         setMainPlayersIDs(validIDs);
+  //       });
+  //   }
+  // }, [allIDs]);
 
-  useEffect(() => {
-    if (mainPlayersIDs.length !== 0) {
-      fetch(
-        "https://api-nba-v1.p.rapidapi.com/players?team=11&season=2021",
-        options
-      )
-        .then((response) => response.json())
-        .then((response) => {
-          const data = response.response;
-          const mainPlayersData: IMainPlayerData[] = [];
-          data.forEach((datum: IPlayer) => {
-            if (mainPlayersIDs.some((id) => id === datum.id)) {
-              mainPlayersData.push({
-                firstname: datum.firstname,
-                lastname: datum.lastname,
-                img: `/src/assets/players/${datum.firstname.toLowerCase()}_${datum.lastname.toLowerCase()}.png`,
-                position: datum.leagues.standard.pos,
-                number: datum.leagues.standard.jersey,
-              });
-            }
-          });
-          setMainPlayersData(mainPlayersData);
-        });
-    }
-  }, [mainPlayersIDs]);
+  // useEffect(() => {
+  //   if (mainPlayersIDs.length !== 0) {
+  //     fetch(
+  //       "https://api-nba-v1.p.rapidapi.com/players?team=11&season=2021",
+  //       options
+  //     )
+  //       .then((response) => response.json())
+  //       .then((response) => {
+  //         const data = response.response;
+  //         const mainPlayersData: IMainPlayerData[] = [];
+  //         data.forEach((datum: IPlayer) => {
+  //           if (mainPlayersIDs.some((id) => id === datum.id)) {
+  //             mainPlayersData.push({
+  //               firstname: datum.firstname,
+  //               lastname: datum.lastname,
+  //               img: `/src/assets/players/${datum.firstname.toLowerCase()}_${datum.lastname.toLowerCase()}.png`,
+  //               position: datum.leagues.standard.pos,
+  //               number: datum.leagues.standard.jersey,
+  //             });
+  //           }
+  //         });
+  //         setMainPlayersData(mainPlayersData);
+  //         setIsLoading(false);
+  //       });
+  //   }
+  // }, [mainPlayersIDs]);
 
   return (
-    <>
+    <WholeContainer>
       <RosterTitle>GSW roster of 21-22 season</RosterTitle>
       <RosterContainer>
-        {mainPlayersData.length !== 0 &&
-          mainPlayersData.map((datum: IMainPlayerData) => (
-            <EachPlayerButton>
-              <EachPlayerImage src={datum.img} />
-              <EachPlayerNameAndPos>
-                {datum.firstname} {datum.lastname} {`(${datum.position})`}
-              </EachPlayerNameAndPos>
-              <EachPlayerNum>{datum.number}</EachPlayerNum>
-            </EachPlayerButton>
-          ))}
+        {isLoading
+          ? <div style={{fontSize: "2rem"}}>Loading roster...</div>
+          : mainPlayersData.map((datum: IMainPlayerData) => (
+              <EachPlayerButton>
+                <EachPlayerImage src={datum.img} />
+                <EachPlayerNameAndPos>
+                  {datum.firstname} {datum.lastname} {`(${datum.position})`}
+                </EachPlayerNameAndPos>
+                <EachPlayerNum>{datum.number}</EachPlayerNum>
+              </EachPlayerButton>
+            ))}
       </RosterContainer>
-    </>
+    </WholeContainer>
   );
 }
 
