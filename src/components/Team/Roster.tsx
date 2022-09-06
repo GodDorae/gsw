@@ -185,7 +185,7 @@ function Roster() {
       <RosterTitle>GSW roster of 21-22 season</RosterTitle>
       <ButtonContainer>
         <LeaderBoardButton>
-          <Link to={"/team/leaderboard"}>Go to the leaderboard</Link>
+          <Link to={"/team/leaderboard"}>{isLoading ? "Loading..." : "Go to the leaderboard"}</Link>
         </LeaderBoardButton>
       </ButtonContainer>
       <RosterContainer>
