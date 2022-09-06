@@ -7,6 +7,7 @@ const WholeContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 3rem;
+  margin-bottom: 3rem;
 `;
 
 const NewsTitle = styled.div`
@@ -22,7 +23,6 @@ const NewsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  margin-bottom: 3rem;
 `;
 
 const EachNews = styled.a`
@@ -63,7 +63,6 @@ function News() {
       {
         method: "GET",
         headers: {
-          Accept: "*/*",
           "X-Naver-Client-Id": "w3zCdqdjo3apSpfoa53F",
           "X-Naver-Client-Secret": "syWW4IoS7X",
         },
@@ -104,7 +103,7 @@ function News() {
           <div style={{ fontSize: "2rem" }}>Loading news...</div>
         ) : (
           items.map((item: IItem) => (
-            <EachNews href={item.link}>
+            <EachNews key={item.title} href={item.link}>
               <EachNewsTitle>{item.title}</EachNewsTitle>
               <EachNewsDesc>{item.description}</EachNewsDesc>
             </EachNews>
