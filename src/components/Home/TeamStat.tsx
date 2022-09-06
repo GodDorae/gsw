@@ -61,36 +61,36 @@ function TeamStat() {
   const [steals, setSteals] = useState(0);
   const [blocks, setBlocks] = useState(0);
 
-  // useEffect(() => {
-  //   fetch(
-  //     "https://api-nba-v1.p.rapidapi.com/standings?league=standard&season=2021&team=11",
-  //     options
-  //   )
-  //     .then((response) => response.json())
-  //     .then((response) => {
-  //       const data = response.response[0];
-  //       setWin(data.win.total);
-  //       setLose(data.loss.total);
-  //       setWinP(data.win.percentage);
-  //       setRank(data.conference.rank);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch(
+      "https://api-nba-v1.p.rapidapi.com/standings?league=standard&season=2021&team=11",
+      options
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        const data = response.response[0];
+        setWin(data.win.total);
+        setLose(data.loss.total);
+        setWinP(data.win.percentage);
+        setRank(data.conference.rank);
+      });
+  }, []);
 
-  // useEffect(() => {
-  //   fetch(
-  //     "https://api-nba-v1.p.rapidapi.com/teams/statistics?season=2021&id=11",
-  //     options
-  //   )
-  //     .then((response) => response.json())
-  //     .then((response) => {
-  //       const data = response.response[0];
-  //       setPoints(data.points);
-  //       setAssists(data.assists);
-  //       setRebounds(data.totReb);
-  //       setSteals(data.steals);
-  //       setBlocks(data.blocks);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch(
+      "https://api-nba-v1.p.rapidapi.com/teams/statistics?season=2021&id=11",
+      options
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        const data = response.response[0];
+        setPoints(data.points);
+        setAssists(data.assists);
+        setRebounds(data.totReb);
+        setSteals(data.steals);
+        setBlocks(data.blocks);
+      });
+  }, []);
 
   return (
     <TeamStatContainer>
