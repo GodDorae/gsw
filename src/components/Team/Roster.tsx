@@ -193,7 +193,7 @@ function Roster() {
       <RosterTitle>GSW roster of 21-22 season</RosterTitle>
       <ButtonContainer>
         <LeaderBoardButton>
-          <Link to={"/team/leaderboard"}>
+          <Link to={"/gsw/team/leaderboard"}>
             {isLoading ? "Loading..." : "Go to the leaderboard"}
           </Link>
         </LeaderBoardButton>
@@ -204,7 +204,7 @@ function Roster() {
         ) : (
           mainPlayersData.map((datum: IMainPlayerData) => (
             <EachPlayerButton key={datum.id}>
-              <Link to={`/team/${datum.id}`}>
+              <Link to={`/gsw/team/${datum.id}`}>
                 <EachPlayerImage src={datum.img} />
                 <EachPlayerNameAndPos>
                   {datum.firstname} {datum.lastname} {`(${datum.position})`}

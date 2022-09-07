@@ -44,13 +44,13 @@ function Navigation() {
         <img src="assets/logo.png" />
       </Logo>
       <MenuBar>
-        <Link to="/">
+        <Link to="/gsw/">
           <MenuElement>Home</MenuElement>
         </Link>
-        <Link to="/team">
+        <Link to="/gsw/team">
           <MenuElement>Team</MenuElement>
         </Link>
-        <Link to="/news">
+        <Link to="/gsw/news">
           <MenuElement>News</MenuElement>
         </Link>
       </MenuBar>

@@ -6,9 +6,9 @@ import Roster from "./Roster";
 function Team() {
   return (
     <Routes>
-      <Route element={<Roster />} path="/" />
-      <Route element={<Leaderboard />} path="/leaderboard" />
-      <Route element={<Detail />} path="/:id" />
+      <Route element={<Roster />} path="/gsw/team/" />
+      <Route element={<Leaderboard />} path="/gsw/team/leaderboard" />
+      <Route element={<Detail />} path="/gsw/team/:id" />
     </Routes>
   );
 }

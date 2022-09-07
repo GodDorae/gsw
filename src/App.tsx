@@ -21,9 +21,9 @@ function App() {
       <Navigation />
       <Container>
         <Routes>
-          <Route element={<HomePage />} path="/" />
-          <Route element={<TeamPage />} path="/team/*" />
-          <Route element={<NewsPage />} path="/news" />
+          <Route element={<HomePage />} path="/gsw/" />
+          <Route element={<TeamPage />} path="/gsw/team/*" />
+          <Route element={<NewsPage />} path="/gsw/news" />
         </Routes>
       </Container>
       <Footer />
