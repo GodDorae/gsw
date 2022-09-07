@@ -51,21 +51,25 @@ const EachPlayerButton = styled.button`
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+
+  &:hover {
+    box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.25);
+  }
 `;
 
 const EachPlayerImage = styled.img`
-  width: 100%;
+  width: 10rem;
   margin-bottom: 2.5rem;
 `;
 
 const EachPlayerNameAndPos = styled.div`
-  font-size: 2.5rem;
-`;
-
-const EachPlayerNum = styled.div`
-  font-size: 4rem;
-  font-weight: 700;
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
 `;
 
 interface IPlayer {
@@ -185,7 +189,9 @@ function Roster() {
       <RosterTitle>GSW roster of 21-22 season</RosterTitle>
       <ButtonContainer>
         <LeaderBoardButton>
-          <Link to={"/team/leaderboard"}>{isLoading ? "Loading..." : "Go to the leaderboard"}</Link>
+          <Link to={"/team/leaderboard"}>
+            {isLoading ? "Loading..." : "Go to the leaderboard"}
+          </Link>
         </LeaderBoardButton>
       </ButtonContainer>
       <RosterContainer>
@@ -194,11 +200,12 @@ function Roster() {
         ) : (
           mainPlayersData.map((datum: IMainPlayerData) => (
             <EachPlayerButton key={datum.id}>
-              <EachPlayerImage src={datum.img} />
-              <EachPlayerNameAndPos>
-                {datum.firstname} {datum.lastname} {`(${datum.position})`}
-              </EachPlayerNameAndPos>
-              <EachPlayerNum>{datum.number}</EachPlayerNum>
+              <Link to={`/team/${datum.id}`}>
+                <EachPlayerImage src={datum.img} />
+                <EachPlayerNameAndPos>
+                  {datum.firstname} {datum.lastname} {`(${datum.position})`}
+                </EachPlayerNameAndPos>
+              </Link>
             </EachPlayerButton>
           ))
         )}
