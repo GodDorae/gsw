@@ -50,8 +50,16 @@ const EachNewsDesc = styled.div`
 interface IItem {
   title: string;
   link: string;
-  description: string;
+  summary: string;
 }
+
+const options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "82d2ed85d6msh851bbd57345cd11p16a6fajsn2270f42277cd",
+    "X-RapidAPI-Host": "free-news.p.rapidapi.com",
+  },
+};
 
 function News() {
   const [items, setItems] = useState<IItem[]>([]);
@@ -59,35 +67,24 @@ function News() {
 
   useEffect(() => {
     fetch(
-      "https://cors-anywhere.herokuapp.com/https://openapi.naver.com/v1/search/news.json?query=골든스테이트&sort=sim",
-      {
-        method: "GET",
-        headers: {
-          "X-Naver-Client-Id": "w3zCdqdjo3apSpfoa53F",
-          "X-Naver-Client-Secret": "syWW4IoS7X",
-        },
-      }
+      "https://free-news.p.rapidapi.com/v1/search?q=golden%20state%20warriors&lang=en&page=1",
+      options
     )
       .then((res) => res.json())
       .then((res) => {
         const givenItems: IItem[] = [];
         const finalItems: IItem[] = [];
-        for (const item of res.items) {
+        for (const item of res.articles) {
           givenItems.push(item);
         }
         for (const item of givenItems) {
-          const title = item.title
-            .replaceAll("<b>", "")
-            .replaceAll("</b>", "")
-            .replaceAll("&quot;", "");
-          const desc = item.description
-            .replaceAll("<b>", "")
-            .replaceAll("</b>", "")
-            .replaceAll("&quot;", "");
+          const title = item.title;
+          const summary = item.summary;
+          const link = item.link;
           const data = {
             title,
-            link: item.link,
-            description: desc,
+            link,
+            summary,
           };
           finalItems.push(data);
         }
@@ -105,7 +102,7 @@ function News() {
           items.map((item: IItem) => (
             <EachNews key={item.title} href={item.link}>
               <EachNewsTitle>{item.title}</EachNewsTitle>
-              <EachNewsDesc>{item.description}</EachNewsDesc>
+              <EachNewsDesc>{item.summary}</EachNewsDesc>
             </EachNews>
           ))
         )}
