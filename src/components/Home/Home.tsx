@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import Gallery from "./Gallery";
 import TeamStat from "./TeamStat";
@@ -14,6 +15,9 @@ const HomePageContainer = styled.div`
 function Home() {
   return (
     <HomePageContainer>
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       <VideoAndTitle />
       <TeamStat />
       <Gallery />

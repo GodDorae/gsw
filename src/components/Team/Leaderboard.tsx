@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import options from "../../API_INFO";
 import { MainPlayersContext } from "../../pages/TeamPage";
@@ -196,6 +197,9 @@ function Leaderboard() {
 
   return (
     <WholeContainer>
+      <Helmet>
+        <title>Leaderboard</title>
+      </Helmet>
       <LeaderboardTitle>
         Stat leaders of 21-22 season in GSW team
       </LeaderboardTitle>

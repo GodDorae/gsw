@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
 
 const WholeContainer = styled.div`
@@ -94,6 +95,9 @@ function News() {
   }, []);
   return (
     <WholeContainer>
+      <Helmet>
+        <title>News</title>
+      </Helmet>
       <NewsTitle>News</NewsTitle>
       <NewsContainer>
         {isLoading ? (

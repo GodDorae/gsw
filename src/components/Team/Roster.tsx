@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import options from "../../API_INFO";
 import { MainPlayersContext } from "../../pages/TeamPage";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const WholeContainer = styled.div`
   width: 100%;
@@ -186,6 +187,9 @@ function Roster() {
 
   return (
     <WholeContainer>
+      <Helmet>
+        <title>Roster</title>
+      </Helmet>
       <RosterTitle>GSW roster of 21-22 season</RosterTitle>
       <ButtonContainer>
         <LeaderBoardButton>
