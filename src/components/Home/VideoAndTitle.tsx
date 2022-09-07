@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import VideoContent from "../../assets/HomePageVideo.mp4";
 
 const VideoContainer = styled.div`
   width: 100%;
@@ -25,7 +24,7 @@ function VideoAndTitle() {
         autoPlay={true}
         loop={true}
         muted={true}
-        src={VideoContent}
+        src="assets/HomePageVideo.mp4"
         style={{ width: "100%", height: "100%", opacity: "0.25", zIndex: "-1", objectFit: "cover"}}
       />
       <VideoTitle>

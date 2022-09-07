@@ -193,7 +193,7 @@ function Detail() {
           <>
             <PlayerImageAndBasicProfile>
               <PlayerImage
-                src={`/src/assets/players/${profile?.firstname.toLowerCase()}_${profile?.lastname.toLowerCase()}.png`}
+                src={`assets/players/${profile?.firstname.toLowerCase()}_${profile?.lastname.toLowerCase()}.png`}
               />
               <PlayerBasicProfile>
                 Golden State Warriors | #{profile?.number} | {profile?.position}

@@ -172,7 +172,7 @@ function Roster() {
                 id: datum.id,
                 firstname: datum.firstname,
                 lastname: datum.lastname,
-                img: `/src/assets/players/${datum.firstname.toLowerCase()}_${datum.lastname.toLowerCase()}.png`,
+                img: `assets/players/${datum.firstname.toLowerCase()}_${datum.lastname.toLowerCase()}.png`,
                 position: datum.leagues.standard.pos,
                 number: datum.leagues.standard.jersey,
               });

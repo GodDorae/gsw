@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import LogoImage from "../assets/logo.png";
 
 const Header = styled.header`
   width: 100%;
@@ -42,7 +41,7 @@ function Navigation() {
   return (
     <Header>
       <Logo>
-        <img src={LogoImage} />
+        <img src="assets/logo.png" />
       </Logo>
       <MenuBar>
         <Link to="/">

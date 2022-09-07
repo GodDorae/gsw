@@ -1,4 +1,3 @@
-import GSW from "../../assets/gsw-bg.jpg";
 import styled from "styled-components";
 
 const GalleryContainer = styled.div`
@@ -16,7 +15,7 @@ const GalleryImage = styled.img`
 function Gallery() {
   return (
     <GalleryContainer>
-      <GalleryImage src={GSW} />
+      <GalleryImage src="assets/gsw-bg.jpg" />
     </GalleryContainer>
   );
 }

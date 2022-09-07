@@ -212,7 +212,7 @@ function Leaderboard() {
           {pointLeader && (
             <>
               <EachLeaderImage
-                src={`/src/assets/players/${pointLeader[0].player.firstname.toLowerCase()}_${pointLeader[0].player.lastname.toLowerCase()}.png`}
+                src={`assets/players/${pointLeader[0].player.firstname.toLowerCase()}_${pointLeader[0].player.lastname.toLowerCase()}.png`}
               />
               <EachLeaderName>
                 {pointLeader[0].player.firstname}{" "}
@@ -227,7 +227,7 @@ function Leaderboard() {
           {assistLeader && (
             <>
               <EachLeaderImage
-                src={`/src/assets/players/${assistLeader[0].player.firstname.toLowerCase()}_${assistLeader[0].player.lastname.toLowerCase()}.png`}
+                src={`assets/players/${assistLeader[0].player.firstname.toLowerCase()}_${assistLeader[0].player.lastname.toLowerCase()}.png`}
               />
               <EachLeaderName>
                 {assistLeader[0].player.firstname}{" "}
@@ -242,7 +242,7 @@ function Leaderboard() {
           {reboundLeader && (
             <>
               <EachLeaderImage
-                src={`/src/assets/players/${reboundLeader[0].player.firstname.toLowerCase()}_${reboundLeader[0].player.lastname.toLowerCase()}.png`}
+                src={`assets/players/${reboundLeader[0].player.firstname.toLowerCase()}_${reboundLeader[0].player.lastname.toLowerCase()}.png`}
               />
               <EachLeaderName>
                 {reboundLeader[0].player.firstname}{" "}
@@ -259,7 +259,7 @@ function Leaderboard() {
           {blockLeader && (
             <>
               <EachLeaderImage
-                src={`/src/assets/players/${blockLeader[0].player.firstname.toLowerCase()}_${blockLeader[0].player.lastname.toLowerCase()}.png`}
+                src={`assets/players/${blockLeader[0].player.firstname.toLowerCase()}_${blockLeader[0].player.lastname.toLowerCase()}.png`}
               />
               <EachLeaderName>
                 {blockLeader[0].player.firstname}{" "}
@@ -274,7 +274,7 @@ function Leaderboard() {
           {stealLeader && (
             <>
               <EachLeaderImage
-                src={`/src/assets/players/${stealLeader[0].player.firstname.toLowerCase()}_${stealLeader[0].player.lastname.toLowerCase()}.png`}
+                src={`assets/players/${stealLeader[0].player.firstname.toLowerCase()}_${stealLeader[0].player.lastname.toLowerCase()}.png`}
               />
               <EachLeaderName>
                 {stealLeader[0].player.firstname}{" "}
