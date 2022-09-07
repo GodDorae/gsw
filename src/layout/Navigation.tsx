@@ -30,6 +30,14 @@ const MenuBar = styled.div`
   font-size: 1.5rem;
 `;
 
+const MenuElement = styled.div`
+  transition: all 0.1s ease-in-out;
+
+  &:hover {
+    border-bottom: 2px solid black;
+  }
+`;
+
 function Navigation() {
   return (
     <Header>
@@ -37,9 +45,15 @@ function Navigation() {
         <img src={LogoImage} />
       </Logo>
       <MenuBar>
-        <Link to="/">Home</Link>
-        <Link to="/team">Team</Link>
-        <Link to="/news">News</Link>
+        <Link to="/">
+          <MenuElement>Home</MenuElement>
+        </Link>
+        <Link to="/team">
+          <MenuElement>Team</MenuElement>
+        </Link>
+        <Link to="/news">
+          <MenuElement>News</MenuElement>
+        </Link>
       </MenuBar>
     </Header>
   );
